@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmartPlug - Login</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,sans-serif;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative}
+
+.container{background:rgba(255,255,255,.95);backdrop-filter:blur(20px);border-radius:20px;padding:40px;width:100%;max-width:400px;box-shadow:0 20px 40px rgba(0,0,0,.15)}
+.logo{text-align:center;margin-bottom:30px}
+.icon{width:50px;height:50px;background:linear-gradient(135deg,#667eea,#764ba2);border-radius:12px;display:inline-flex;align-items:center;justify-content:center;margin-bottom:15px}
+.icon::before{content:'⚡';font-size:24px;color:white}
+h1{color:#2d3748;font-size:24px;font-weight:700;margin-bottom:5px}
+.subtitle{color:#718096;font-size:14px;margin-bottom:30px}
+.form-group{margin-bottom:20px}
+label{display:block;color:#4a5568;font-size:13px;font-weight:600;margin-bottom:6px}
+input[type="email"],input[type="password"]{width:100%;padding:14px 16px;border:2px solid #e2e8f0;border-radius:10px;font-size:15px;background:#f8fafc}
+input:focus{outline:none;border-color:#667eea;background:white;box-shadow:0 0 0 3px rgba(102,126,234,.1)}
+
+.remember-forgot{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px;font-size:13px}
+.remember{display:flex;align-items:center;gap:6px}
+.remember input{width:16px;height:16px;accent-color:#667eea}
+.forgot{color:#667eea;text-decoration:none;font-weight:500}
+.forgot:hover{text-decoration:underline}
+.btn{width:100%;background:linear-gradient(135deg,#667eea,#764ba2);color:white;border:none;padding:14px;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer}
+.divider{display:flex;align-items:center;margin:25px 0;color:#a0aec0;font-size:13px}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:#e2e8f0}
+.divider span{padding:0 12px}
+.signup{text-align:center;color:#718096;font-size:13px}
+.signup a{color:#667eea;text-decoration:none;font-weight:600}
+.signup a:hover{text-decoration:underline}
+.status{position:absolute;top:15px;right:15px;background:rgba(16,185,129,.1);color:#059669;padding:6px 12px;border-radius:15px;font-size:11px;font-weight:600;border:1px solid rgba(16,185,129,.2)}
+.status::before{content:'●';margin-right:4px}
+@media(max-width:480px){.container{margin:15px;padding:30px}}
+</style>
+</head>
+<body class="bg">
+<div class="status">Device Online</div>
+<div class="container">
+<div class="logo">
+<div class="icon"></div>
+<h1>SmartPlug</h1>
+<p class="subtitle">Control your devices anywhere</p>
+</div>
+<form id="f">
+<div class="form-group">
+<label for="e">Email Address</label>
+<input type="email" id="e" required placeholder="Enter your email">
+</div>
+<div class="form-group">
+<label for="p">Password</label>
+<input type="password" id="p" required placeholder="Enter your password">
+</div>
+<div class="remember-forgot">
+<div class="remember">
+<input type="checkbox" id="r">
+<label for="r">Remember me</label>
+</div>
+<a href="#" class="forgot">Forgot password?</a>
+</div>
+<button type="submit" class="btn">Sign In</button>
+</form>
+<div class="divider"><span>or</span></div>
+<div class="signup">Don't have an account? <a href="#">Create one</a></div>
+</div>
+<script>
+document.getElementById('f').onsubmit=function(e){
+e.preventDefault();
+const btn=document.querySelector('.btn');
+if(document.getElementById('e').value&&document.getElementById('p').value){
+btn.textContent='Signing In...';btn.style.background='#a0aec0';
+setTimeout(()=>{alert('Login successful!');btn.textContent='Sign In';btn.style.background='linear-gradient(135deg,#667eea,#764ba2)'},1500)
+}
+}
+</script>
+</body>
+</html>
